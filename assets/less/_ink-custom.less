@@ -1,0 +1,375 @@
+//@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600');
+
+html,
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: @text-color;
+    height: 100%;
+
+}
+a {
+    color:@link-color;
+    text-decoration: none;
+    &:hover {
+        color: @link-color-hover;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: @text-color;
+}
+
+p{
+    font-size: 1em;
+    line-height: 1.5em;
+}
+input, select, textarea {
+    .transition(all 0.30s ease-in-out);
+    outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    box-shadow:inset 0 0 5px @grey!important;
+    box-shadow:none!important;
+}
+
+picture{
+    display: block;
+    margin: 0;
+}
+
+.ink-button {
+    background: @blue;
+    color: @white;
+    border: 1px solid @blue;
+    font-weight: 300;
+    text-transform: uppercase;
+    .rounded(0px);
+    .transition(all 0.25s ease-in-out);
+
+    -moz-background-clip: inherit; 
+    -webkit-background-clip: inherit; 
+    background-clip: inherit;
+
+    &.full-width {
+        width: 100%;
+        margin: 0;
+    }
+    &.light {
+        background: none;
+        color: @link-color;
+        border: 1px solid @blue;
+    }
+    &.active,
+    &:focus,
+    &:hover{
+        .box-shadow (none);
+        border: 1px solid darken(@blue, 3);
+        color: @white;
+        background: darken(@blue, 3);
+    }
+    &.disabled,
+    &[disabled] {
+        zoom: 1;
+        .opacity(.3);
+        pointer-events: none;
+    }
+    
+    .fa{
+        font-size: 1.3em;
+        margin: 0 .25em;
+        vertical-align: text-top;
+    }
+
+}
+
+body.ink-drawer {
+    .drawer {
+        
+        background: @dark-grey;
+        
+        
+        .ink-navigation {
+            ul.menu.vertical {
+                li{
+                    
+                    &:extend(.ink-navigation.content-menu ul.menu.horizontal li all);
+                    
+                    &:before{
+                        display: none;
+                    }
+                    
+                    &.has-dropdown{
+                        >a{
+                            //border-bottom: none;
+                        }
+                        a:first-child{
+                            margin-right: 50px;
+                        }
+                    }
+                    
+                    .dropdown-icon {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        padding: 1em 0;
+                        width: 50px;
+                        //line-height: 100%;
+                        border-left: 1px solid rgba(0,0,0,.15);
+                    }
+                    .ink-toggle.active+.submenu {
+                        display: block !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+/* Removes the clear button from date inputs */
+input[type="date"]::-webkit-clear-button {
+    display: none;
+}
+/* Removes the spin button */
+input[type="date"]::-webkit-inner-spin-button { 
+    display: none;
+}
+/* Always display the drop down caret */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    //color: #000000;
+}
+/* A few custom styles for date inputs */
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    //color: #95a5a6;
+    background:#000;
+    //display: inline-block !important;
+    visibility: visible !important;
+}
+input[type="date"], focus {
+    //color: #95a5a6;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+.ink-form{
+    .control-group{
+        .control>input{
+            .rounded(0);
+            .box-shadow(none);
+            border: 1px solid lighten(@black, 40);
+            padding: .5em;
+            font-size: 1em;
+            color: @grey;
+
+            &:focus{
+                background: @grey;
+                border: 1px solid lighten(@grey, 20);
+            }
+
+        }
+        .control{
+            &.validation.error{
+                input{
+                    border: 1px solid @red;
+                }
+            }
+        }
+
+        &.required label:after, 
+        &.required p.label:after{
+            vertical-align: middle;
+            font-size: .6em;
+        }
+        
+        ul.dropdown-menu{
+            font-size: 1em;
+            font-weight: 300;
+            min-width: max-content;
+            max-width: inherit;
+            width: 100%;
+            border: 1px solid lighten(@grey, 40);
+            top: ~"calc(100% - 1px)";
+            margin: 0;
+            padding: 0.25em .75em 0 .75em;
+            .box-shadow(none);
+            .rounded(0);
+
+            li{
+                margin: .75em .25em;
+            }
+        }
+        
+        input[type=checkbox],
+        input[type=radio] {
+            position: absolute;
+            visibility: hidden;
+        }
+        input[type=checkbox]+label,
+        input[type=radio]+label {
+            cursor: pointer;
+            cursor: hand;
+            padding-left: 0;
+            vertical-align: middle;
+            color: @grey;
+            position: relative;
+            padding-left: 1.75em;
+            display: block;
+            
+            &:after{
+                display: none;
+                
+            }
+        }
+        input[type=checkbox]~label:before,
+        input[type=radio]~label:before {
+            position: absolute;
+            left: 0;
+            top: 2px;
+            content: "";
+            background: @grey;
+            border: 1px solid lighten(@grey, 40);
+            height: 18px;
+            width: 18px;
+            .rounded(0);
+            cursor: pointer;
+            cursor: hand;
+        }
+        input[type=checkbox]:checked~label:before,
+        input[type=radio]:checked~label:before {
+            font-family: FontAwesome;
+            content: "\f00c";
+            background: @blue;
+            //border: 1px solid  @blue;
+            color: @white;
+            font-size: .75em;
+            text-align: center;
+        }
+        input[type=radio]~label:before {
+            .rounded(18px);
+        }
+        
+        ul.checkbox-group{
+            li{
+                position: relative;
+                margin-bottom: 1em;
+            }
+        }
+        input[type=date]{
+            padding: .44em .5em;
+        }
+        
+        input[type=date] + button{
+            position: absolute;
+            top: .25em;
+            right: .25em;
+            width: 35px;
+            height: 35px;
+            background: transparent;
+            pointer-events: none;
+            line-height: 10px;
+            padding: 0;
+            border: none;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator,
+        input[type="date"]::-webkit-calendar-picker-indicator:focus{
+              color:rgba(204,204,204,0);
+        }
+        
+        
+    }
+}
+
+
+
+/*SHOW MODAL*/
+/*
+.ink-modal,
+.ink-shade{
+    display: flex!important;
+    opacity: 1!important;
+}
+*/
+
+.ink-modal-override{  
+    width: auto!important;
+    //height: auto!important;
+    margin-top: 0!important;
+    margin-left: 0!important;
+    max-height: ~"calc(100% - 2em - 36px)";
+    max-width: ~"calc(100% - 2em)";
+    min-width: 300px;
+    position: fixed;
+    top: ~"calc(50% + 18px)";
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    .translate(-50%, -50%);
+    
+    height: 460px!important;
+}
+
+
+.ink-shade{
+    .rgba(@black, .5);
+}
+
+.ink-modal{
+    .rounded(0);
+    .box-shadow(none);
+    
+    &:extend(.ink-modal-override);
+    
+    >.modal-header{
+        padding: 0;
+        .box-shadow(none);
+        border: none;
+        min-height: 60px;
+        
+        button.ink-dismiss{
+            float: right;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 1em;
+        }
+    }
+    >.modal-body{
+        padding: 0 1.5em 1em 1.5em;
+        //text-align: center;
+        h3{
+            font-size: 1.6em;
+            font-weight: 200;
+            text-transform: uppercase;
+            line-height: 1.4em;
+        }
+        h4{
+            font-weight: 400;
+        }
+        p{
+            font-weight: 400;
+            
+            strong{
+                font-weight: 500;
+            }
+        }
+    }
+    
+}
+
+
+
+
+
+
+
+
+
