@@ -21,11 +21,11 @@ module.exports = {
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
             { rel: 'stylesheet', type: 'text/css', href: '/css/font-awesome.min.css' },
             { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' },
-            { rel: 'stylesheet', type: 'text/css', href: 'http://fastly.ink.sapo.pt/3.1.10/css/ink-flex.min.css' },
+            { rel: 'stylesheet', type: 'text/css', href: 'https://fastly.ink.sapo.pt/3.1.10/css/ink-flex.min.css' },
         ],
         script: [
             { src: '/js/holder.js' },
-            { src: 'http://fastly.ink.sapo.pt/3.1.10/js/ink-all.min.js' },
+            { src: 'https://fastly.ink.sapo.pt/3.1.10/js/ink-all.min.js' },
             { src: '/js/autoload.js' }
         ]
     },
@@ -60,8 +60,8 @@ module.exports = {
         }
     },
 
-    router: {
-        base: '/filda-rep/'
-      }
+//    router: {
+//        base: '/filda-rep/'
+//      }
 
 }
