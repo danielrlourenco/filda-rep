@@ -59,5 +59,10 @@ module.exports = {
             }
         }
     },
-    router: routerBase
+    
+    
+    router: {
+    base: '/filda-rep/'
+  }
+    
 }
