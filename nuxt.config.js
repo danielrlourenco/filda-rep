@@ -60,8 +60,8 @@ module.exports = {
         }
     },
 
-//    router: {
-//        base: '/filda-rep/'
-//      }
+    router: {
+        base: '/filda-rep/'
+      }
 
 }
