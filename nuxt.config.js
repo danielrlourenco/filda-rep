@@ -19,13 +19,13 @@ module.exports = {
         ],
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-            { rel: 'stylesheet', type: 'text/css', href: '/css/font-awesome.min.css' },
+            { rel: 'stylesheet', type: 'text/css', href: '~/css/font-awesome.min.css' },
             { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' },
-            { rel: 'stylesheet', type: 'text/css', href: 'https://fastly.ink.sapo.pt/3.1.10/css/ink-flex.min.css' },
+            { rel: 'stylesheet', type: 'text/css', href: '/css/ink-flex.min.css' },
         ],
         script: [
             { src: '/js/holder.js' },
-            { src: 'https://fastly.ink.sapo.pt/3.1.10/js/ink-all.min.js' },
+            { src: '/js/ink-all.min.js' },
             { src: '/js/autoload.js' }
         ]
     },

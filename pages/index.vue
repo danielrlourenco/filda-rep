@@ -3,7 +3,7 @@
       <div class="ink-grid">
           <content-menu/>
           <h1>
-            filda-website
+            filda-website 1.1
           </h1>
       
           
